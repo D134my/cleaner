@@ -4,9 +4,14 @@
 #include <regex>
 
 void Clean::set_path(std::string const &path) {
+  if (_path != path) {
+    if (!path.starts_with("/")) {
+      std::cout << "path must start with / \n";
+      exit(-1);
+    }
 
-  if (_path != path)
     _path = path;
+  }
 
   std::cout << "path is " << _path << std::endl;
 }
